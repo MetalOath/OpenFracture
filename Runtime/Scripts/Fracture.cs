@@ -206,6 +206,7 @@ public class Fracture : MonoBehaviour
         GameObject obj = new GameObject();
         obj.name = "Fragment";
         obj.tag = this.tag;
+        obj.layer = this.gameObject.layer;
 
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();
