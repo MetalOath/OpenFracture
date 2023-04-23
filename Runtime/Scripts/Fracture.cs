@@ -207,7 +207,6 @@ public class Fracture : MonoBehaviour
         obj.name = "Fragment";
         obj.tag = this.tag;
         obj.layer = this.gameObject.layer;
-        obj.AddComponent<Destroyer>();
 
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();
