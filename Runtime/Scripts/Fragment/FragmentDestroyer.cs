@@ -7,7 +7,7 @@ public class FragmentDestroyer : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(DestroyFragment(5));
+        StartCoroutine(DestroyFragment(10));
     }
 
     IEnumerator DestroyFragment(float t)
