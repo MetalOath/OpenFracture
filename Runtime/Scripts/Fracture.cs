@@ -23,6 +23,9 @@ public class Fracture : MonoBehaviour
     /// </summary>
     private GameObject fragmentRoot;
 
+    // YunYun!
+    public GameObject GetFragments() { return fragmentRoot; }
+
     [ContextMenu("Print Mesh Info")]
     public void PrintMeshInfo()
     {
