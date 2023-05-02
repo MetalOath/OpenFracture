@@ -69,7 +69,8 @@ public class Fracture : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (triggerOptions.triggerType == TriggerType.Collision)
+        callbackOptions.CallOnPreFracture();
+        if (triggerOptions.triggerType == TriggerType.Collision && fractureOptions.canFracture)
         {
             if (collision.contactCount > 0)
             {
@@ -94,7 +95,8 @@ public class Fracture : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (triggerOptions.triggerType == TriggerType.Trigger)
+        callbackOptions.CallOnPreFracture();
+        if (triggerOptions.triggerType == TriggerType.Trigger && fractureOptions.canFracture)
         {
             // Colliding object tag must be in the set of allowed collision tags if filtering by tag is enabled
             bool tagAllowed = triggerOptions.IsTagAllowed(collider.gameObject.tag);
@@ -109,7 +111,8 @@ public class Fracture : MonoBehaviour
 
     void Update()
     {
-        if (triggerOptions.triggerType == TriggerType.Keyboard)
+        callbackOptions.CallOnPreFracture();
+        if (triggerOptions.triggerType == TriggerType.Keyboard && fractureOptions.canFracture)
         {
             if (Input.GetKeyDown(triggerOptions.triggerKey))
             {
@@ -210,7 +213,9 @@ public class Fracture : MonoBehaviour
         obj.name = "Fragment";
         obj.tag = this.tag;
         obj.layer = this.gameObject.layer;
-        obj.AddComponent<FragmentDestroyer>();
+        
+        if (fractureOptions.destroyFragments)
+            Destroy(obj, fractureOptions.destroyAfterSeconds);
 
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();

@@ -5,6 +5,9 @@ using UnityEngine.Events;
 [Serializable]
 public class CallbackOptions
 {
+    [Tooltip("This callback is invoked just before any collision checks.")]
+    public UnityEvent onPreFracture;
+
     [Tooltip("This callback is invoked when a fracture has been triggered. Not called for slicing and prefracturing.")]
     public UnityEvent<Collider, GameObject, Vector3> onFracture;
 
@@ -15,6 +18,11 @@ public class CallbackOptions
     public CallbackOptions()
     {
         this.onCompleted = null;
+    }
+
+    public void CallOnPreFracture()
+    {
+        onPreFracture?.Invoke();
     }
 
     public void CallOnFracture(Collider instigator, GameObject fracturedObject, Vector3 point)
