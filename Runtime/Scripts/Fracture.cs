@@ -213,9 +213,10 @@ public class Fracture : MonoBehaviour
         obj.name = "Fragment";
         obj.tag = this.tag;
         obj.layer = this.gameObject.layer;
-        
-        //if (fractureOptions.destroyFragments)
-            Destroy(obj, fractureOptions.destroyAfterSeconds);
+
+        if (fractureOptions.destroyFragments)
+            obj.AddComponent<Destroyer>().delay = fractureOptions.destroyAfterSeconds;
+            //Destroy(obj, fractureOptions.destroyAfterSeconds);
 
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();
