@@ -214,7 +214,7 @@ public class Fracture : MonoBehaviour
         obj.tag = this.tag;
         obj.layer = this.gameObject.layer;
         
-        if (fractureOptions.destroyFragments)
+        //if (fractureOptions.destroyFragments)
             Destroy(obj, fractureOptions.destroyAfterSeconds);
 
         // Update mesh to the new sliced mesh
