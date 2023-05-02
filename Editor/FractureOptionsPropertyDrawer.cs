@@ -17,6 +17,8 @@ public class FractureOptionsPropertyDrawer : PropertyDrawer
         {
             EditorGUI.indentLevel = 1;
 
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("destroyFragments"));
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("destroyAfterSeconds"));
             EditorGUILayout.PropertyField(property.FindPropertyRelative("fragmentCount"));
             EditorGUILayout.PropertyField(property.FindPropertyRelative("asynchronous"));
             EditorGUILayout.PropertyField(property.FindPropertyRelative("detectFloatingFragments"));
