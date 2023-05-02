@@ -11,10 +11,10 @@ public class FractureOptions
     public bool canFracture = true;
 
     [Tooltip("Enables destruction of fragments after set amount of time")]
-    public bool destroyFragments = true;
+    public bool destroyFragments;
 
     [Tooltip("Time to wait before destroying fragments")]
-    public float destroyAfterSeconds = 10f;
+    public float destroyAfterSeconds;
 
     [Range(1, 1024)]
     [Tooltip("Maximum number of times an object and its children are recursively fractured. Larger fragment counts will result in longer computation times.")]
@@ -47,6 +47,8 @@ public class FractureOptions
     public FractureOptions()
     {
         this.canFracture = true;
+        this.destroyFragments = true;
+        this.destroyAfterSeconds = 10f;
         this.fragmentCount = 10;
         this.xAxis = true;
         this.yAxis = true;
