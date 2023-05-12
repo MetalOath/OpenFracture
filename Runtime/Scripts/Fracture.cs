@@ -136,7 +136,8 @@ public class Fracture : MonoBehaviour
             if (this.fragmentRoot == null)
             {
                 // Create a game object to contain the fragments
-                //this.fragmentRoot = new GameObject($"{this.name}Fragments");
+                this.fragmentRoot = new GameObject($"{this.name}Fragments");
+                this.fragmentRoot.AddComponent<Destroyer>().delay = fractureOptions.destroyAfterSeconds * 2;
                 //this.fragmentRoot.transform.SetParent(this.transform.parent);
 
                 // Each fragment will handle its own scale
@@ -213,6 +214,7 @@ public class Fracture : MonoBehaviour
         obj.name = "Fragment";
         obj.tag = this.tag;
         obj.layer = this.gameObject.layer;
+        obj.transform.SetParent(null);
 
         if (fractureOptions.destroyFragments)
             obj.AddComponent<Destroyer>().delay = fractureOptions.destroyAfterSeconds;
