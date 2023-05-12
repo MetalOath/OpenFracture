@@ -136,9 +136,8 @@ public class Fracture : MonoBehaviour
             if (this.fragmentRoot == null)
             {
                 // Create a game object to contain the fragments
-                this.fragmentRoot = new GameObject($"{this.name}Fragments");
+                //this.fragmentRoot = new GameObject($"{this.name}Fragments");
                 //this.fragmentRoot.transform.SetParent(this.transform.parent);
-                this.fragmentRoot.transform.SetParent(null);
 
                 // Each fragment will handle its own scale
                 this.fragmentRoot.transform.position = this.transform.position;
