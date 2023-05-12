@@ -138,6 +138,7 @@ public class Fracture : MonoBehaviour
                 // Create a game object to contain the fragments
                 this.fragmentRoot = new GameObject($"{this.name}Fragments");
                 //this.fragmentRoot.transform.SetParent(this.transform.parent);
+                this.fragmentRoot.transform.SetParent(null);
 
                 // Each fragment will handle its own scale
                 this.fragmentRoot.transform.position = this.transform.position;
@@ -216,7 +217,6 @@ public class Fracture : MonoBehaviour
 
         if (fractureOptions.destroyFragments)
             obj.AddComponent<Destroyer>().delay = fractureOptions.destroyAfterSeconds;
-            //Destroy(obj, fractureOptions.destroyAfterSeconds);
 
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();
